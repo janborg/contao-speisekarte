@@ -1,11 +1,11 @@
 <?php
 
 /**
- *  file       : 20210805°0911 dca/tl_contao_speisekarte_speisen.php
- *  version    : • chg 20210805°0921 Edit dishes with TinyMCE
- *  version    : ////• seq 20210805°0931 Allow for defining an image per dish -- Not functioning
- *  reference  : e.g. https://docs.contao.org/dev/reference/dca/ [ref 20210805°1022]
- *  note       : 20210806°0911 Start implementing image
+ *  file       : 20210805ï¿½0911 dca/tl_contao_speisekarte_speisen.php
+ *  version    : ï¿½ chg 20210805ï¿½0921 Edit dishes with TinyMCE
+ *  version    : ////ï¿½ seq 20210805ï¿½0931 Allow for defining an image per dish -- Not functioning
+ *  reference  : e.g. https://docs.contao.org/dev/reference/dca/ [ref 20210805ï¿½1022]
+ *  note       : 20210806ï¿½0911 Start implementing image
  */
 
 $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
@@ -71,7 +71,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+                'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
@@ -152,28 +152,28 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
 
-        // Edit dish with TinyMCE [chg 20210805°0921]
+        // Edit dish with TinyMCE [chg 20210805ï¿½0921]
         'beschreibung' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['beschreibung'],
             'exclude'                 => true,
             'inputType'               => 'textarea',
             'eval'                    => array (
-                // 'mandatory' => false,                               // shutdown 20210805°092211
+                // 'mandatory' => false,                               // shutdown 20210805ï¿½092211
                 'tl_class'   => 'clr',
-                'allowHtml'  => true,                                  // added 20210805°092212
-                'cols'       => 110,                                   // added 20210805°092213
-                'feEditable' => true,                                  // added 20210805°092214
-                'feViewable' => true,                                  // added 20210805°092215
-                'preserveTags' => false,                               // added 20210805°092216
-                'rows'       => 4,                                     // added 20210805°092217
-                'rte'        => 'tinyMCE'                              // added 20210805°092218 'rich text editor'
+                'allowHtml'  => true,                                  // added 20210805ï¿½092212
+                'cols'       => 110,                                   // added 20210805ï¿½092213
+                'feEditable' => true,                                  // added 20210805ï¿½092214
+                'feViewable' => true,                                  // added 20210805ï¿½092215
+                'preserveTags' => false,                               // added 20210805ï¿½092216
+                'rows'       => 4,                                     // added 20210805ï¿½092217
+                'rte'        => 'tinyMCE'                              // added 20210805ï¿½092218 'rich text editor'
              ),
-            'sql'                     => "varchar(10000) NOT NULL default ''"  // added 20210805°092119
+            'sql'                     => "varchar(10000) NOT NULL default ''"  // added 20210805ï¿½092119
         ),
 
  /*
-        // Allow for defining an image per dish [seq 20210805°0931]
+        // Allow for defining an image per dish [seq 20210805ï¿½0931]
         // Status : Not working
         'picture'                     => array
         (
@@ -197,10 +197,10 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
          ),
  */
 
-        // Allow for defining an image per dish [seq 20210806°0913 (after 20210805°0931)]
+        // Allow for defining an image per dish [seq 20210806ï¿½0913 (after 20210805ï¿½0931)]
         // Ref : https://docs.contao.org/dev/reference/dca/fields/
         // Demo snippets search 'validImageTypes' e.g. in
-        //    • G:\work\kampuni\contao4xtm\trunk\htdocs\vendor\contao\calendar-bundle\src\Resources\contao\dca\tl_calendar_events.php
+        //    ï¿½ G:\work\kampuni\contao4xtm\trunk\htdocs\vendor\contao\calendar-bundle\src\Resources\contao\dca\tl_calendar_events.php
         ////'picture'                 => array
         'dishpic'                     => array                                  // Choose a unique field name, 'picture' is found in 111 files
         (
