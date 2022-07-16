@@ -5,20 +5,28 @@ namespace LinkingYou\ContaoSpeisekarte\DataContainer;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use LinkingYou\ContaoSpeisekarte\Model\ContaoSpeisekarteAllergeneModel;
 
-class Allergene {
+class Allergene
+{
 
-    public function getAllergene() {
+    public function getAllergene()
+    {
 
         $allergene = ContaoSpeisekarteAllergeneModel::findAll();
 
         $result = array();
-        foreach ($allergene as $allergen) {
-            $result[$allergen->id] = $allergen->titel;
-        }
+        if (isset($allergene)) : {
+
+                foreach ($allergene as $allergen) {
+                    $result[$allergen->id] = $allergen->titel;
+                };
+            }
+        endif;
+
         return $result;
     }
 
-    public function getAllergenTitelById($id) {
+    public function getAllergenTitelById($id)
+    {
         $zusatzstoff = ContaoSpeisekarteAllergeneModel::findOneBy('id', $id);
         if ($zusatzstoff) {
             return $zusatzstoff->titel;
@@ -27,7 +35,8 @@ class Allergene {
         }
     }
 
-    public function getAllergenKuerzelById($id) {
+    public function getAllergenKuerzelById($id)
+    {
         $zusatzstoff = ContaoSpeisekarteAllergeneModel::findOneBy('id', $id);
         if ($zusatzstoff) {
             return $zusatzstoff->kuerzel;
@@ -35,5 +44,4 @@ class Allergene {
             return null;
         }
     }
-
 }
