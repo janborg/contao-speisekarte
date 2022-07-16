@@ -5,20 +5,29 @@ namespace LinkingYou\ContaoSpeisekarte\DataContainer;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use LinkingYou\ContaoSpeisekarte\Model\ContaoSpeisekarteZusatzstoffeModel;
 
-class Zusatzstoffe {
+class Zusatzstoffe
+{
 
-    public function getZusatzstoffe() {
+    public function getZusatzstoffe()
+    {
 
         $zusatzstoffe = ContaoSpeisekarteZusatzstoffeModel::findAll();
 
         $result = array();
-        foreach ($zusatzstoffe as $zusatzstoff) {
-            $result[$zusatzstoff->id] = '(' . $zusatzstoff->kuerzel . ') ' . $zusatzstoff->titel;
-        }
+
+        if (isset($zusatzstoffe)) : {
+                foreach ($zusatzstoffe as $zusatzstoff) {
+                    $result[$zusatzstoff->id] = '(' . $zusatzstoff->kuerzel . ') ' . $zusatzstoff->titel;
+                }
+            }
+
+        endif;
+        
         return $result;
     }
 
-    public function getZusatzstofftitelById($id) {
+    public function getZusatzstofftitelById($id)
+    {
         $zusatzstoff = ContaoSpeisekarteZusatzstoffeModel::findOneBy('id', $id);
         if ($zusatzstoff) {
             return $zusatzstoff->titel;
@@ -27,7 +36,8 @@ class Zusatzstoffe {
         }
     }
 
-    public function getZusatzstoffkuerzelById($id) {
+    public function getZusatzstoffkuerzelById($id)
+    {
         $zusatzstoff = ContaoSpeisekarteZusatzstoffeModel::findOneBy('id', $id);
         if ($zusatzstoff) {
             return $zusatzstoff->kuerzel;
@@ -35,6 +45,4 @@ class Zusatzstoffe {
             return null;
         }
     }
-
-
 }
