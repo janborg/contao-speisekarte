@@ -78,7 +78,8 @@ class ModuleContaoSpeisekarte extends Module {
                     if ($item->preis) {
                         // Why does the Contao debugger not complain about the missing
                         //  float cast here, as it does below? [note 20210729°1114]
-                        $speise["preis"] = number_format($item->preis, 2, ',', '.');
+                        //$speise["preis"] = number_format($item->preis, 2, ',', '.');
+                        $speise["preis"] = $item->preis;
                     } else {
                         $speise["preis"] = null;
                     }
@@ -95,7 +96,8 @@ class ModuleContaoSpeisekarte extends Module {
                     if ($item->preis) {
                         // [Fix 20210729°1111 see ss 20210729°1112] Add '(float)' to avoid Contao debugger
                         // "Warning: number_format() expects parameter 1 to be float, string given"
-                        $speise["preis2"] = number_format( (float) $item->preis2, 2, ',', '.');
+                        //$speise["preis2"] = number_format( (float) $item->preis2, 2, ',', '.');
+                        $speise["preis2"] = $item->preis2;
                     } else {
                         $speise["preis2"] = null;
                     }
@@ -106,7 +108,8 @@ class ModuleContaoSpeisekarte extends Module {
                     }
                     if ($item->preis) {
                         // [Fix 20210729°1113] Add '(float)', same as in above fix 20210729°1111
-                        $speise["preis3"] = number_format( (float) $item->preis3, 2, ',', '.');
+                        //$speise["preis3"] = number_format( (float) $item->preis3, 2, ',', '.');
+                        $speise["preis3"] = $item->preis3;
                     } else {
                         $speise["preis3"] = null;
                     }

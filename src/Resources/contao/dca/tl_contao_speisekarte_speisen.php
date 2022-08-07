@@ -214,7 +214,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 'filesOnly'           => true,                                  // Avoid selecting a folder
                 'extensions'          => \Config::get('validImageTypes'),       // Limit file tree to certain file types
                 'tl_class'            => 'clr',                                 // Add the given CSS class(es) to the generated HTML
-                'mandatory'           => true                                   // If true the field cannot be empty
+                'mandatory'           => false                                   // If true the field cannot be empty
 
                 ////'fieldType'       => 'radio',                               // Select only one, not multiple as with checkbox
                 ////'files'           => true                                   // after outdated https://docs.contao.org/books/cookbook/en/custom-module/part2.html
